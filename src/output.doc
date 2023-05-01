@@ -1,0 +1,34 @@
+Folder PATH listing
+Volume serial number is 5422-DFE0
+E:.
+|   app.controller.spec.ts
+|   app.controller.ts
+|   app.module.ts
+|   app.service.ts
+|   main.ts
+|   output.doc
+|   
++---auth
+|   |   auth.controller.ts
+|   |   auth.module.ts
+|   |   auth.service.ts
+|   |   
+|   +---dto
+|   |       signup.dto.ts
+|   |       
+|   \---schemas
+|           user.schema.ts
+|           
+\---book
+    |   book.controller.spec.ts
+    |   book.controller.ts
+    |   book.module.ts
+    |   book.service.ts
+    |   
+    +---dto
+    |       create-book.dto.ts
+    |       update-book.dto.ts
+    |       
+    \---schemas
+            book.schema.ts
+            
