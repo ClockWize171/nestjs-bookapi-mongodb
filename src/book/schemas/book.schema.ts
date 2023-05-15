@@ -2,9 +2,9 @@ import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
 
 export enum Catagory {
   ADVENTURE = 'Adventure',
-  CLASSIC = 'CLASSIC',
-  CRIME = 'CRIME',
-  FANTASY = 'FANTASY',
+  CLASSIC = 'Classic',
+  CRIME = 'Crime',
+  FANTASY = 'Fantasy',
 }
 
 @Schema({

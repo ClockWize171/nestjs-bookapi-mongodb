@@ -1,4 +1,8 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  Injectable,
+  UnauthorizedException,
+  BadRequestException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { JwtService } from '@nestjs/jwt';
 import { User } from './schemas/user.schema';
@@ -17,12 +21,18 @@ export class AuthService {
 
   async signUp(signUpDto: SignUpDto): Promise<{ token: string }> {
     const { name, email, password } = signUpDto;
+    const duplicateEmail = await this.userModel.findOne({ email });
+
+    if (duplicateEmail) {
+      throw new BadRequestException('Email already existed!');
+    }
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await this.userModel.create({
       name,
       email,
       password: hashedPassword,
     });
+
     const token = this.jwtService.sign({ id: user._id });
     return { token };
   }
